@@ -22,6 +22,7 @@ public partial class Bullet : Node2D
 		Timer timer = GetNode<Timer>("Timer");
 		timer.Start();
 		timer.Timeout += DieProcess;
+		Damage *= myTank.InitialDamage;
 	}
 
 	protected virtual void Damaging(Node2D body)

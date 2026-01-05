@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=4 uid="uid://cn44hl63bbeus"]
+[gd_scene load_steps=10 format=4 uid="uid://cn44hl63bbeus"]
 
 [ext_resource type="PackedScene" uid="uid://cnjchstygs1i8" path="res://scene/roadTiles.tscn" id="1_m5w2l"]
 [ext_resource type="Script" uid="uid://c0l6x22ota0ew" path="res://script/Duels.cs" id="1_ut2f6"]
@@ -8,6 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://bg72o5m2eln3y" path="res://scene/0h_head.tscn" id="6_23enb"]
 [ext_resource type="PackedScene" uid="uid://c22dxahbptydm" path="res://scene/0t_head.tscn" id="7_0habs"]
 [ext_resource type="PackedScene" uid="uid://ff64pbfca0iw" path="res://scene/0f_head.tscn" id="8_0habs"]
+[ext_resource type="PackedScene" uid="uid://dtph6i7kt530g" path="res://scene/collectable.tscn" id="9_0habs"]
 
 [node name="duels" type="Node2D" node_paths=PackedStringArray("HpLine1", "HpLine2", "Tank1", "Tank2")]
 script = ExtResource("1_ut2f6")
@@ -81,4 +82,7 @@ IsJoySitck = true
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(1147.9908, 423.29175)
-zoom = Vector2(0.5, 0.5)
+
+[node name="Collectable" parent="." instance=ExtResource("9_0habs")]
+position = Vector2(899.7262, 420.46198)
+Speed = 200.0

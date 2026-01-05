@@ -12,6 +12,7 @@ public partial class Tank : CharacterBody2D, DamagingObject
 	[Export] public PackedScene BulletPrefab;
 	[Export] public Sprite2D Body;
 	[Export] public float MaxArmor = 300;
+	[Export] public float InitialDamage = 1;
 	public float MinSpeed = 10;
 	public float Hp { get; set; } = 100;
 	public float Armor = 100;

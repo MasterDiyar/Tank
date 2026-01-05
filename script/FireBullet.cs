@@ -26,6 +26,7 @@ public partial class FireBullet : Bullet
 		DamageTimer = GetNode<Timer>("DamageTimer");
 		DamageTimer.Timeout += fireDamage;
 		GetNode<CpuParticles2D>("Area2D/fireParticles").Emitting = true;
+		Damage *= myTank.InitialDamage;
 	}
 	
 	protected override void Damaging(Node2D damaging)
