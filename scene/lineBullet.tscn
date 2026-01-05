@@ -1,0 +1,35 @@
+[gd_scene load_steps=6 format=3 uid="uid://bl785pmepaya8"]
+
+[ext_resource type="PackedScene" uid="uid://dslp85lixm68c" path="res://scene/bullet.tscn" id="1_p874d"]
+[ext_resource type="Texture2D" uid="uid://diax6rm76tguw" path="res://assets/bullets/line.png" id="2_4qeql"]
+[ext_resource type="Script" uid="uid://cyalu0m4r7htt" path="res://script/LineBullet.cs" id="2_lfvuw"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_lfvuw"]
+size = Vector2(16, 7)
+
+[sub_resource type="Curve" id="Curve_7b7aj"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[node name="Bullet" instance=ExtResource("1_p874d")]
+script = ExtResource("2_lfvuw")
+Speed = 400.0
+Acceleration = 120.0
+Damage = 20.0
+
+[node name="Area2D" parent="." index="0"]
+texture_filter = 3
+scale = Vector2(2, 2)
+
+[node name="CollisionShape2D" parent="Area2D" index="0"]
+shape = SubResource("RectangleShape2D_lfvuw")
+
+[node name="Line" type="Sprite2D" parent="Area2D" index="1"]
+texture = ExtResource("2_4qeql")
+
+[node name="Timer" parent="." index="1"]
+wait_time = 1.0
+
+[node name="Line2D" type="Line2D" parent="." index="2"]
+width = 4.0
+width_curve = SubResource("Curve_7b7aj")

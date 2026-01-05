@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://c52dyuduwuxix"]
+
+[ext_resource type="Script" uid="uid://cu8c45lix5qc1" path="res://script/UserMove.cs" id="1_4jpuy"]
+
+[node name="userMove" type="Node2D"]
+script = ExtResource("1_4jpuy")

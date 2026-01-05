@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://c043v38hb50d2"]
+
+[ext_resource type="PackedScene" uid="uid://dslp85lixm68c" path="res://scene/bullet.tscn" id="1_owv8j"]
+[ext_resource type="Texture2D" uid="uid://b6bgasnavpjaj" path="res://assets/bullets/aredpebble.png" id="2_hgprj"]
+
+[node name="Bullet" instance=ExtResource("1_owv8j")]
+Speed = 500.0
+Damage = 4.0
+spawnBoom = false
+
+[node name="Aredpebble" type="Sprite2D" parent="Area2D" index="1"]
+texture_filter = 3
+texture = ExtResource("2_hgprj")
+
+[node name="Timer" parent="." index="1"]
+wait_time = 0.3

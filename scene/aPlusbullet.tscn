@@ -1,0 +1,32 @@
+[gd_scene load_steps=5 format=3 uid="uid://dg4hnlgyc1uph"]
+
+[ext_resource type="PackedScene" uid="uid://bl785pmepaya8" path="res://scene/lineBullet.tscn" id="1_hf3af"]
+[ext_resource type="Texture2D" uid="uid://0d3jcqw1phbd" path="res://assets/bullets/aplus.png" id="2_18p0i"]
+[ext_resource type="Script" uid="uid://bb65kb8cauicj" path="res://script/APlusbullet.cs" id="2_78bkk"]
+
+[sub_resource type="Gradient" id="Gradient_78bkk"]
+colors = PackedColorArray(0.6313726, 0.62352943, 0.5686275, 1, 1, 1, 1, 0)
+
+[node name="Bullet" instance=ExtResource("1_hf3af")]
+script = ExtResource("2_78bkk")
+PebbleCount = 5
+Spread = 1.0
+Speed = 280.0
+Acceleration = 400.0
+Damage = 60.0
+
+[node name="Area2D" parent="." index="0"]
+scale = Vector2(1, 1)
+
+[node name="CollisionShape2D" parent="Area2D" index="0"]
+position = Vector2(0, -0.5)
+
+[node name="Line" parent="Area2D" index="1"]
+texture = ExtResource("2_18p0i")
+
+[node name="Timer" parent="." index="1"]
+wait_time = 1.2
+
+[node name="Line2D" parent="." index="2"]
+default_color = Color(0.6313726, 0.62352943, 0.5686275, 1)
+gradient = SubResource("Gradient_78bkk")

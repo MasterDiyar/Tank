@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://dbxcesyfglmgb"]
+
+[ext_resource type="Script" uid="uid://bw7u7h8oicclu" path="res://script/AiBehavior.cs" id="1_5bx6h"]
+
+[node name="AiBehavior" type="Node2D"]
+script = ExtResource("1_5bx6h")

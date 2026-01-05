@@ -1,0 +1,24 @@
+[gd_scene load_steps=5 format=3 uid="uid://1qxejf6k03mi"]
+
+[ext_resource type="Script" uid="uid://dvkdigekrjqse" path="res://script/Tank.cs" id="1_c1ogp"]
+[ext_resource type="Texture2D" uid="uid://b4hv5lqc0fs1t" path="res://assets/tank.png" id="1_v8ame"]
+[ext_resource type="PackedScene" uid="uid://baxn20omqmjpr" path="res://scene/electro.tscn" id="2_g4dhl"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_v8ame"]
+size = Vector2(105, 85)
+
+[node name="tank" type="CharacterBody2D" node_paths=PackedStringArray("Body")]
+texture_filter = 3
+script = ExtResource("1_c1ogp")
+Speed = 30.0
+RotationSpeed = 1.0
+BulletPrefab = ExtResource("2_g4dhl")
+Body = NodePath("Tank")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-1.5, -0.5)
+shape = SubResource("RectangleShape2D_v8ame")
+
+[node name="Tank" type="Sprite2D" parent="."]
+texture = ExtResource("1_v8ame")
+flip_h = true

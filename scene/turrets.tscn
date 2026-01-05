@@ -1,0 +1,27 @@
+[gd_scene load_steps=5 format=3 uid="uid://dfd3s3jxmaycm"]
+
+[ext_resource type="FontFile" uid="uid://co5hls8fsfe2g" path="res://assets/paladinscond.ttf" id="1_dodei"]
+[ext_resource type="Texture2D" uid="uid://cf05fjf0oerah" path="res://assets/0h.png" id="2_0oph1"]
+[ext_resource type="Texture2D" uid="uid://c0mk6slpqrgy7" path="res://assets/0L.png" id="3_sgpjm"]
+[ext_resource type="Texture2D" uid="uid://ciid64eu6gd5n" path="res://assets/head.png" id="4_k5gb4"]
+
+[node name="MenuButton" type="MenuButton"]
+offset_right = 212.0
+offset_bottom = 41.0
+theme_override_fonts/font = ExtResource("1_dodei")
+theme_override_font_sizes/font_size = 32
+text = "Turrets"
+flat = false
+switch_on_hover = true
+item_count = 4
+popup/item_0/text = "nothing"
+popup/item_0/id = 3
+popup/item_1/text = "0h"
+popup/item_1/icon = ExtResource("2_0oph1")
+popup/item_1/id = 0
+popup/item_2/text = "0L"
+popup/item_2/icon = ExtResource("3_sgpjm")
+popup/item_2/id = 1
+popup/item_3/text = "head"
+popup/item_3/icon = ExtResource("4_k5gb4")
+popup/item_3/id = 2

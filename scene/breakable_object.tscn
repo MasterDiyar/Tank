@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=3 uid="uid://cuiyiheel7ra3"]
+
+[ext_resource type="Script" uid="uid://6g5iifpdvlxt" path="res://script/BreakableObject.cs" id="1_sjdum"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_op2up"]
+
+[node name="BreakableObject" type="StaticBody2D"]
+script = ExtResource("1_sjdum")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_op2up")

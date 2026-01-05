@@ -1,0 +1,29 @@
+[gd_scene load_steps=5 format=3 uid="uid://ff64pbfca0iw"]
+
+[ext_resource type="Texture2D" uid="uid://ntchor1jofno" path="res://assets/0f.png" id="1_fpima"]
+[ext_resource type="Script" uid="uid://b8bs33poh010o" path="res://script/OfHead.cs" id="2_swp0m"]
+[ext_resource type="PackedScene" uid="uid://bs0fy4ndvp5mx" path="res://scene/fireBullet.tscn" id="3_swp0m"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_csal4"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_fpima")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="0FHead" type="AnimatedSprite2D" node_paths=PackedStringArray("reloadTimer", "AttackSound")]
+texture_filter = 3
+sprite_frames = SubResource("SpriteFrames_csal4")
+script = ExtResource("2_swp0m")
+BulletScenes = Array[PackedScene]([ExtResource("3_swp0m")])
+reloadTimer = NodePath("Timer")
+AttackSound = NodePath("AudioStreamPlayer2D")
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 2.0
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]

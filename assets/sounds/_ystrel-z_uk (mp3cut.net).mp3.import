@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://cchu82uw0nr24"
+path="res://.godot/imported/_ystrel-z_uk (mp3cut.net).mp3-9fb13d9cf0f7192b6c25ea85e0405ffa.mp3str"
+
+[deps]
+
+source_file="res://assets/sounds/_ystrel-z_uk (mp3cut.net).mp3"
+dest_files=["res://.godot/imported/_ystrel-z_uk (mp3cut.net).mp3-9fb13d9cf0f7192b6c25ea85e0405ffa.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

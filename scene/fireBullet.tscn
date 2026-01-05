@@ -1,0 +1,38 @@
+[gd_scene load_steps=6 format=3 uid="uid://bs0fy4ndvp5mx"]
+
+[ext_resource type="PackedScene" uid="uid://dslp85lixm68c" path="res://scene/bullet.tscn" id="1_06d15"]
+[ext_resource type="PackedScene" uid="uid://cf3ckrht5pi5o" path="res://scene/fire_particles.tscn" id="2_ic4wr"]
+[ext_resource type="Script" uid="uid://byk06ld72ex7r" path="res://script/FireBullet.cs" id="2_lk8nx"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_lk8nx"]
+size = Vector2(525, 80)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_dmqg2"]
+size = Vector2(525, 80)
+
+[node name="Bullet" instance=ExtResource("1_06d15")]
+script = ExtResource("2_lk8nx")
+Speed = 0.0
+Acceleration = 0.0
+Damage = 15.0
+
+[node name="CollisionShape2D" parent="Area2D" index="0"]
+position = Vector2(290, -28.000002)
+scale = Vector2(1, 0.99999994)
+skew = 0.7853981
+shape = SubResource("RectangleShape2D_lk8nx")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Area2D" index="1"]
+position = Vector2(290, 28)
+scale = Vector2(1, 0.9999999)
+skew = -0.78539824
+shape = SubResource("RectangleShape2D_dmqg2")
+
+[node name="fireParticles" parent="Area2D" index="2" instance=ExtResource("2_ic4wr")]
+amount = 48
+
+[node name="Timer" parent="." index="1"]
+wait_time = 3.0
+
+[node name="DamageTimer" type="Timer" parent="." index="2"]
+wait_time = 0.1

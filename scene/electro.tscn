@@ -1,0 +1,54 @@
+[gd_scene load_steps=10 format=3 uid="uid://baxn20omqmjpr"]
+
+[ext_resource type="PackedScene" uid="uid://dslp85lixm68c" path="res://scene/bullet.tscn" id="1_musjd"]
+[ext_resource type="Script" uid="uid://c6h8emdvatm3q" path="res://script/Electro.cs" id="2_ia5sv"]
+[ext_resource type="Texture2D" uid="uid://diqm07qk57emj" path="res://assets/bullets/energizer1.png" id="2_ptq3j"]
+[ext_resource type="Texture2D" uid="uid://b11fm3opq2eya" path="res://assets/bullets/energizer2.png" id="3_ia5sv"]
+[ext_resource type="Texture2D" uid="uid://d23lqxrnnbjnd" path="res://assets/bullets/energizer3.png" id="4_wyriu"]
+[ext_resource type="Texture2D" uid="uid://vh3mfi04raav" path="res://assets/bullets/energizer4.png" id="5_tvm2u"]
+[ext_resource type="Texture2D" uid="uid://dnap5gvtg01ku" path="res://assets/bullets/energizer5.png" id="6_idsrs"]
+[ext_resource type="Texture2D" uid="uid://nuid018l3qc6" path="res://assets/bullets/energizer6.png" id="7_g74ns"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_qecvd"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_ptq3j")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_ia5sv")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_wyriu")
+}],
+"loop": false,
+"name": &"default",
+"speed": 6.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("5_tvm2u")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_idsrs")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_g74ns")
+}],
+"loop": true,
+"name": &"loop",
+"speed": 12.0
+}]
+
+[node name="Bullet" instance=ExtResource("1_musjd")]
+script = ExtResource("2_ia5sv")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Area2D" index="1"]
+texture_filter = 3
+sprite_frames = SubResource("SpriteFrames_qecvd")
+animation = &"loop"
+frame_progress = 0.45545685
+offset = Vector2(-20, 0)
+
+[node name="Timer" parent="." index="1"]
+wait_time = 2.1999999999999997
