@@ -17,12 +17,25 @@ public partial class AiBehavior : Node2D
 	/// </summary>
 	[Export] public int Difficulty = 0;
 	private float[] SearchDistance = [300, 600, 1000];
+
+	private float AngleToClosest;
 	
 	public override void _Ready()
 	{
+		var timer = new Timer()
+		{
+			WaitTime = 0.3,
+			Autostart = true
+		};
+		timer.Timeout += AiChoosing;
+		AddChild(timer);
 	}
 
-	// Called every frame. 'delta' is the elapsed time since the previous frame.
+	void AiChoosing()
+	{
+		
+	}
+
 	public override void _Process(double delta)
 	{
 	}

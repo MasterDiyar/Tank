@@ -1,19 +1,17 @@
-[gd_scene load_steps=10 format=4 uid="uid://cn44hl63bbeus"]
+[gd_scene load_steps=6 format=4 uid="uid://cn44hl63bbeus"]
 
 [ext_resource type="PackedScene" uid="uid://cnjchstygs1i8" path="res://scene/roadTiles.tscn" id="1_m5w2l"]
 [ext_resource type="Script" uid="uid://c0l6x22ota0ew" path="res://script/Duels.cs" id="1_ut2f6"]
 [ext_resource type="PackedScene" uid="uid://1qxejf6k03mi" path="res://scene/tank.tscn" id="2_7i1up"]
-[ext_resource type="PackedScene" uid="uid://mlxtstnc5ie1" path="res://scene/0l_head.tscn" id="3_2wc6e"]
 [ext_resource type="PackedScene" uid="uid://c52dyuduwuxix" path="res://scene/user_move.tscn" id="4_5ybsa"]
-[ext_resource type="PackedScene" uid="uid://bg72o5m2eln3y" path="res://scene/0h_head.tscn" id="6_23enb"]
-[ext_resource type="PackedScene" uid="uid://c22dxahbptydm" path="res://scene/0t_head.tscn" id="7_0habs"]
-[ext_resource type="PackedScene" uid="uid://ff64pbfca0iw" path="res://scene/0f_head.tscn" id="8_0habs"]
-[ext_resource type="PackedScene" uid="uid://dtph6i7kt530g" path="res://scene/collectable.tscn" id="9_0habs"]
+[ext_resource type="PackedScene" uid="uid://ff64pbfca0iw" path="res://scene/heads/0f_head.tscn" id="8_0habs"]
 
-[node name="duels" type="Node2D" node_paths=PackedStringArray("HpLine1", "HpLine2", "Tank1", "Tank2")]
+[node name="duels" type="Node2D" node_paths=PackedStringArray("HpLine1", "HpLine2", "ArmorLine1", "ArmorLine2", "Tank1", "Tank2")]
 script = ExtResource("1_ut2f6")
 HpLine1 = NodePath("CanvasLayer/Control/Control/HpLine1")
 HpLine2 = NodePath("CanvasLayer/Control/Control2/HpLine2")
+ArmorLine1 = NodePath("CanvasLayer/Control/Control/ArmorLine1")
+ArmorLine2 = NodePath("CanvasLayer/Control/Control2/ArmorLine2")
 Tank1 = NodePath("tank")
 Tank2 = NodePath("tank2")
 
@@ -30,12 +28,17 @@ grow_vertical = 2
 [node name="Control" type="Control" parent="CanvasLayer/Control"]
 layout_mode = 1
 anchors_preset = 0
-offset_right = 40.0
+offset_left = 40.0
+offset_right = 80.0
 offset_bottom = 40.0
 
 [node name="HpLine1" type="Line2D" parent="CanvasLayer/Control/Control"]
 points = PackedVector2Array(10, 30, 110, 30)
+width = 15.0
 default_color = Color(0.92941177, 0.09411765, 0.08235294, 1)
+
+[node name="ArmorLine1" type="Line2D" parent="CanvasLayer/Control/Control"]
+points = PackedVector2Array(10, 50, 160, 50)
 
 [node name="Control2" type="Control" parent="CanvasLayer/Control"]
 layout_mode = 1
@@ -45,11 +48,14 @@ anchor_right = 1.0
 offset_left = -40.0
 offset_bottom = 40.0
 grow_horizontal = 0
+scale = Vector2(-1, 1)
 
 [node name="HpLine2" type="Line2D" parent="CanvasLayer/Control/Control2"]
-position = Vector2(-100, 0)
 points = PackedVector2Array(10, 30, 110, 30)
 default_color = Color(0.92941177, 0.09411765, 0.08235294, 1)
+
+[node name="ArmorLine2" type="Line2D" parent="CanvasLayer/Control/Control2"]
+points = PackedVector2Array(10, 50, 160, 50)
 
 [node name="TileMapLayer" parent="." instance=ExtResource("1_m5w2l")]
 scale = Vector2(1.5, 1.5)
@@ -57,21 +63,10 @@ tile_map_data = PackedByteArray("AAAAAAAAAAACAAIAAAAAAAEAAAACAAIAAAAAAAIAAAACAAI
 
 [node name="tank" parent="." instance=ExtResource("2_7i1up")]
 position = Vector2(406, 699)
-
-[node name="0LHead" parent="tank" instance=ExtResource("3_2wc6e")]
-position = Vector2(30, -23)
+HeadScene = Array[PackedScene]([ExtResource("8_0habs")])
 
 [node name="userMove" parent="tank" node_paths=PackedStringArray("myTank") instance=ExtResource("4_5ybsa")]
 myTank = NodePath("..")
-
-[node name="0hHead" parent="tank" instance=ExtResource("6_23enb")]
-position = Vector2(-34.39438, 25.596191)
-
-[node name="0T_head" parent="tank" instance=ExtResource("7_0habs")]
-position = Vector2(-36.422028, -30.019348)
-
-[node name="0FHead" parent="tank" instance=ExtResource("8_0habs")]
-position = Vector2(27.123413, 24.589478)
 
 [node name="tank2" parent="." instance=ExtResource("2_7i1up")]
 position = Vector2(1865.3096, 531.93884)
@@ -82,7 +77,4 @@ IsJoySitck = true
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(1147.9908, 423.29175)
-
-[node name="Collectable" parent="." instance=ExtResource("9_0habs")]
-position = Vector2(899.7262, 420.46198)
-Speed = 200.0
+zoom = Vector2(0.5, 0.5)

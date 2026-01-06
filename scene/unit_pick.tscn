@@ -1,10 +1,11 @@
-[gd_scene load_steps=7 format=3 uid="uid://bpun5w728xq6k"]
+[gd_scene load_steps=8 format=3 uid="uid://bpun5w728xq6k"]
 
 [ext_resource type="Script" uid="uid://boy5t1miu2wpn" path="res://script/UnitPick.cs" id="1_rxfwy"]
 [ext_resource type="FontFile" uid="uid://co5hls8fsfe2g" path="res://assets/paladinscond.ttf" id="1_ufhpf"]
 [ext_resource type="Texture2D" uid="uid://b4hv5lqc0fs1t" path="res://assets/tank.png" id="2_rxfwy"]
 [ext_resource type="Texture2D" uid="uid://dpfqpvnl43q3f" path="res://assets/latank.png" id="3_o10wq"]
 [ext_resource type="PackedScene" uid="uid://dfd3s3jxmaycm" path="res://scene/turrets.tscn" id="5_o10wq"]
+[ext_resource type="PackedScene" uid="uid://1qxejf6k03mi" path="res://scene/tank.tscn" id="6_a7lhi"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_o10wq"]
 font = ExtResource("1_ufhpf")
@@ -20,9 +21,9 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_rxfwy")
 MainButton = NodePath("HSplitContainer/MenuButton")
-MainTexture = NodePath("TextureRect")
+MainTexture = NodePath("")
 NumberButtons = [NodePath("HSplitContainer/MenuButton2"), NodePath("HSplitContainer/MenuButton3"), NodePath("HSplitContainer/MenuButton4"), NodePath("HSplitContainer/MenuButton5")]
-NumberTextures = [NodePath("TextureRect/TextureRect1"), NodePath("TextureRect/TextureRect2"), NodePath("TextureRect/TextureRect3"), NodePath("TextureRect/TextureRect4")]
+NumberTextures = [NodePath(""), NodePath(""), NodePath(""), NodePath("")]
 
 [node name="Label" type="Label" parent="."]
 layout_mode = 1
@@ -48,6 +49,7 @@ anchor_right = 1.0
 anchor_bottom = 0.12200001
 offset_bottom = -0.056007385
 grow_horizontal = 2
+scale = Vector2(0.5, 0.75)
 
 [node name="MenuButton" type="MenuButton" parent="HSplitContainer"]
 clip_contents = true
@@ -86,53 +88,53 @@ clip_contents = true
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="TextureRect" type="TextureRect" parent="."]
-texture_filter = 3
+[node name="HSplitContainer2" type="HBoxContainer" parent="."]
+clip_contents = true
 layout_mode = 1
 anchors_preset = -1
-anchor_left = 0.721
-anchor_top = 0.372
-anchor_right = 0.79
-anchor_bottom = 0.736
-offset_right = 48.512024
-offset_bottom = -107.87201
-scale = Vector2(2, 2)
-stretch_mode = 3
-
-[node name="TextureRect1" type="TextureRect" parent="TextureRect"]
-layout_mode = 0
-offset_right = 40.0
-offset_bottom = 40.0
-
-[node name="TextureRect2" type="TextureRect" parent="TextureRect"]
-layout_mode = 1
-anchors_preset = 2
-anchor_top = 1.0
-anchor_bottom = 1.0
-offset_top = -40.0
-offset_right = 40.0
-grow_vertical = 0
-
-[node name="TextureRect3" type="TextureRect" parent="TextureRect"]
-layout_mode = 1
-anchors_preset = 1
-anchor_left = 1.0
-anchor_right = 1.0
-offset_left = -40.0
-offset_bottom = 40.0
+anchor_left = 0.505
+anchor_right = 1.495
+anchor_bottom = 0.12200001
+offset_bottom = -0.056007385
 grow_horizontal = 0
+scale = Vector2(0.5, 0.75)
 
-[node name="TextureRect4" type="TextureRect" parent="TextureRect"]
-layout_mode = 1
-anchors_preset = 3
-anchor_left = 1.0
-anchor_top = 1.0
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = -40.0
-offset_top = -40.0
-grow_horizontal = 0
-grow_vertical = 0
+[node name="MenuButton" type="MenuButton" parent="HSplitContainer2"]
+clip_contents = true
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 1.22
+theme_override_fonts/font = ExtResource("1_ufhpf")
+theme_override_font_sizes/font_size = 32
+text = "Tank type"
+flat = false
+item_count = 2
+popup/item_0/text = "Default"
+popup/item_0/icon = ExtResource("2_rxfwy")
+popup/item_0/id = 0
+popup/item_1/text = "Latank"
+popup/item_1/icon = ExtResource("3_o10wq")
+popup/item_1/id = 1
+
+[node name="MenuButton2" parent="HSplitContainer2" instance=ExtResource("5_o10wq")]
+clip_contents = true
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="MenuButton3" parent="HSplitContainer2" instance=ExtResource("5_o10wq")]
+clip_contents = true
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="MenuButton4" parent="HSplitContainer2" instance=ExtResource("5_o10wq")]
+clip_contents = true
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="MenuButton5" parent="HSplitContainer2" instance=ExtResource("5_o10wq")]
+clip_contents = true
+layout_mode = 2
+size_flags_horizontal = 3
 
 [node name="Button" type="Button" parent="."]
 layout_mode = 1
@@ -141,10 +143,38 @@ anchor_left = 1.0
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = -143.0
-offset_top = -41.0
+offset_left = -218.0
+offset_top = -79.0
 grow_horizontal = 0
 grow_vertical = 0
 theme_override_fonts/font = ExtResource("1_ufhpf")
 theme_override_font_sizes/font_size = 32
 text = "Start"
+
+[node name="Control" type="Control" parent="."]
+anchors_preset = 0
+offset_left = 300.0
+offset_top = 400.0
+offset_right = 340.0
+offset_bottom = 440.0
+
+[node name="tank" parent="Control" instance=ExtResource("6_a7lhi")]
+
+[node name="Control2" type="Control" parent="."]
+anchors_preset = 0
+offset_left = 1620.0
+offset_top = 400.0
+offset_right = 1660.0
+offset_bottom = 440.0
+
+[node name="tank" parent="Control2" instance=ExtResource("6_a7lhi")]
+
+[node name="CheckButton" type="CheckButton" parent="."]
+layout_mode = 0
+offset_left = 1747.0
+offset_top = 959.0
+offset_right = 1919.0
+offset_bottom = 1000.0
+theme_override_fonts/font = ExtResource("1_ufhpf")
+theme_override_font_sizes/font_size = 32
+text = "DUels"
