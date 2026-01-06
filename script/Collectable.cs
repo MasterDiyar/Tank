@@ -1,5 +1,9 @@
 using Godot;
 using System;
+using System.Linq;
+using Godot.Collections;
+using vansur.script.Singles;
+
 namespace vansur.script;
 
 public partial class Collectable : Area2D
@@ -13,7 +17,7 @@ public partial class Collectable : Area2D
         ExtraArmor = 0,
         Repair = 0,
         RepairPercent = 0,
-        ChangeHead = 0;
+        ChangeHead = -1;
 
     [Export] private string[] upgrades= [];
              
@@ -35,7 +39,15 @@ public partial class Collectable : Area2D
             tank.MaxArmor += ExtraArmor;
             tank.Armor += Repair;
             tank.Armor *= RepairPercent / 100f + 1;
-
+            if (ChangeHead > -1)
+            {
+                var tHL = tank.HeadScene.ToList();
+                tHL.Insert(0, StatInfo.HeadScenes[(int)ChangeHead]);
+                if(tHL.Count >= 5)tHL.RemoveAt(tHL.Count - 1);
+                tank.HeadScene = tHL.ToArray();
+                tank.UpdateHeads(tHL.Count);
+            }
+            
             CallDeferred("queue_free");
         }
     }

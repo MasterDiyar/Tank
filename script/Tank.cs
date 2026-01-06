@@ -39,10 +39,11 @@ public partial class Tank : CharacterBody2D, DamagingObject
 		if (!_headPositions.TryGetValue(count, out var positions)) return;
 		for (var i = 0; i < positions.Length; i++)
 		{
+			GD.Print(positions.Length, " ", count);
 			var pos = positions[i];
 			var head = HeadScene[i].Instantiate<Node2D>();
 			AddChild(head);
-			head.Position = pos;
+			head.Position = pos/3;
 		}
 		headAdded?.Invoke();
 	}
