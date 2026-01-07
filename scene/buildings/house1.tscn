@@ -1,0 +1,26 @@
+[gd_scene load_steps=6 format=3 uid="uid://xwx7rkok3eo"]
+
+[ext_resource type="PackedScene" uid="uid://cuiyiheel7ra3" path="res://scene/breakable_object.tscn" id="1_42g55"]
+[ext_resource type="PackedScene" uid="uid://tgfjeia148fw" path="res://scene/particles/smoke_particles.tscn" id="2_oxhwv"]
+[ext_resource type="Texture2D" uid="uid://y7y7jfxt8wiy" path="res://assets/houses/dom1.png" id="3_el0v8"]
+[ext_resource type="Texture2D" uid="uid://bqedn6hdtufq8" path="res://assets/houses/ruins2.png" id="3_oxhwv"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_oxhwv"]
+size = Vector2(118, 64)
+
+[node name="BreakableObject" instance=ExtResource("1_42g55")]
+MaxHp = 200.0
+smokeParticles = ExtResource("2_oxhwv")
+ruin_texture = ExtResource("3_oxhwv")
+SpawnOffset = Vector2(0, -64)
+SpawnSize = Vector2(2, 2)
+
+[node name="CollisionShape2D" parent="." index="0"]
+position = Vector2(0, -56)
+scale = Vector2(2, 2)
+shape = SubResource("RectangleShape2D_oxhwv")
+
+[node name="Dom1" type="Sprite2D" parent="." index="1"]
+texture_filter = 3
+scale = Vector2(2, 2)
+texture = ExtResource("3_el0v8")

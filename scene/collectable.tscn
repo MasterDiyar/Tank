@@ -1,10 +1,10 @@
 [gd_scene load_steps=4 format=3 uid="uid://dtph6i7kt530g"]
 
 [ext_resource type="Script" uid="uid://dsq05jq8iruj7" path="res://script/Collectable.cs" id="1_28dhl"]
-[ext_resource type="Texture2D" uid="uid://dstu6tpecabbj" path="res://icon.svg" id="2_jqe0m"]
+[ext_resource type="Texture2D" uid="uid://crt0bmuu7hc2e" path="res://assets/Box.png" id="2_28dhl"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_w7ixj"]
-size = Vector2(128, 128)
+size = Vector2(64, 64)
 
 [node name="Collectable" type="Area2D"]
 script = ExtResource("1_28dhl")
@@ -13,4 +13,6 @@ script = ExtResource("1_28dhl")
 shape = SubResource("RectangleShape2D_w7ixj")
 
 [node name="Icon" type="Sprite2D" parent="."]
-texture = ExtResource("2_jqe0m")
+texture_filter = 3
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("2_28dhl")

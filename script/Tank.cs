@@ -20,32 +20,36 @@ public partial class Tank : CharacterBody2D, DamagingObject
 	public float Hp { get; set; } = 100;
 	public float Armor = 100;
 	public Action<float, float> HpChanged;
-	public Action headAdded;
+	public Action<List<Head>> headAdded;
 	public bool isReloaded = true;
-                                   	
+                                
+	private List<Head> _activeHeads = [];
 
 	private readonly Dictionary<int, Vector2[]> _headPositions = new()
 	{
-		{ 1, [new Vector2(90, 90)] },
-		{ 2, [new Vector2(90, 45), new Vector2(90, 135)] },
-		{ 3, [new Vector2(135, 90), new Vector2(45, 45), new Vector2(45, 135)] },
-		{ 4, [new Vector2(35, 35), new Vector2(145, 35), new Vector2(35, 145), new Vector2(145, 145)] }
+		{ 1, [Vector2.Zero] },
+		{ 2, [Vector2.Up*35, Vector2.Down*35] },
+		{ 3, [Vector2.Right*40, new Vector2(-35, -20), new Vector2(-35, 20) ] },
+		{ 4, [new Vector2(35, 35), new Vector2(-35, 35), new Vector2(35, -35), new Vector2(-35, -35)] }
 	};
 	
 	public void UpdateHeads(int count)
 	{
 		foreach (var child in GetChildren()) if(child is Head) child.QueueFree();
+		_activeHeads.Clear();
 		if (count ==0) return;
 		if (!_headPositions.TryGetValue(count, out var positions)) return;
 		for (var i = 0; i < positions.Length; i++)
 		{
 			GD.Print(positions.Length, " ", count);
 			var pos = positions[i];
-			var head = HeadScene[i].Instantiate<Node2D>();
+			var head = HeadScene[i].Instantiate<Head>();
+			head.ZIndex = 12;
 			AddChild(head);
-			head.Position = pos/3;
+			head.Position = pos;//3;
+			_activeHeads.Add(head);
 		}
-		headAdded?.Invoke();
+		headAdded?.Invoke(_activeHeads);
 	}
 	
 	public override void _Ready()

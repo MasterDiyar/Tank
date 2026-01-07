@@ -18,8 +18,8 @@ public partial class FireBullet : Bullet
 		area.BodyExited += UnDamaging;
 		Position = Vector2.Zero;
 		parent = GetParent<Node2D>();
-		area.Position = parent.GlobalPosition;
 		area.GlobalRotation = GlobalRotation;
+		area.Position = parent.GlobalPosition+Vector2.FromAngle(area.GlobalRotation)*30;
 		Timer timer = GetNode<Timer>("Timer");
 		timer.Start();
 		timer.Timeout += DieProcess;
@@ -63,7 +63,7 @@ public partial class FireBullet : Bullet
 
 	public override void _Process(double delta)
 	{
-		area.Position = parent.GlobalPosition;
+		area.Position = parent.GlobalPosition+Vector2.FromAngle(area.GlobalRotation)*30;
 		area.GlobalRotation = parent.GlobalRotation;
 	}
 }

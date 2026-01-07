@@ -18,13 +18,10 @@ public partial class UserMove : Node2D
 	{
 		_i = (IsJoySitck) ? 2 : 0;
 		heads = myTank.GetChildren().OfType<Head>().ToList();
-		myTank.headAdded += () =>
-		{
-			GD.Print("Head Added");
-			;
-			heads = myTank.GetChildren().OfType<Head>().ToList();
-		};
+		myTank.headAdded += (newList) => heads = [..newList];
 	}
+	
+	
 	void Movement(float fDelta)
      	{
              float forwardInput = Input.GetAxis(_negativeAction[_i], _positiveAction[_i]); 

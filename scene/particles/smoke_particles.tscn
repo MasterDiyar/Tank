@@ -1,0 +1,45 @@
+[gd_scene load_steps=6 format=3 uid="uid://tgfjeia148fw"]
+
+[ext_resource type="Texture2D" uid="uid://cyh0i5wanmngt" path="res://assets/whiteball.png" id="1_41va4"]
+[ext_resource type="Script" uid="uid://bbe1w2qu6pjvi" path="res://script/SmokeParticles.cs" id="2_lhouy"]
+[ext_resource type="AudioStream" uid="uid://cpibag4y6cbbk" path="res://assets/sounds/9dc320d168ec2f9.mp3" id="3_f180b"]
+[ext_resource type="Texture2D" uid="uid://bqedn6hdtufq8" path="res://assets/houses/ruins2.png" id="4_10isx"]
+
+[sub_resource type="Gradient" id="Gradient_0umw6"]
+colors = PackedColorArray(0.4, 0.4, 0.4, 1, 1, 1, 1, 0.15686275)
+
+[node name="SmokeParticles" type="CPUParticles2D" node_paths=PackedStringArray("sprite")]
+z_index = 2
+emitting = false
+amount = 48
+texture = ExtResource("1_41va4")
+lifetime = 3.5
+one_shot = true
+explosiveness = 1.0
+lifetime_randomness = 0.5
+emission_shape = 1
+emission_sphere_radius = 120.0
+direction = Vector2(0, 0)
+spread = 180.0
+gravity = Vector2(0, 0)
+initial_velocity_min = 10.0
+initial_velocity_max = 50.0
+angular_velocity_min = -16.0
+angular_velocity_max = 16.0
+orbit_velocity_min = -0.1
+orbit_velocity_max = 0.1
+scale_amount_min = 2.0
+scale_amount_max = 6.0
+color_ramp = SubResource("Gradient_0umw6")
+script = ExtResource("2_lhouy")
+sprite = NodePath("Sprite2D")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_f180b")
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 1.75
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+visible = false
+texture = ExtResource("4_10isx")
