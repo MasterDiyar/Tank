@@ -7,15 +7,15 @@
 size = Vector2(12, 5)
 
 [node name="Bullet" instance=ExtResource("1_yc1f7")]
-Speed = 600.0
-Acceleration = -100.0
+Speed = 900.0
+Acceleration = -300.0
 Damage = 15.0
 
-[node name="CollisionShape2D" parent="Area2D" index="0"]
-shape = SubResource("RectangleShape2D_rbu6e")
-
-[node name="Negev" type="Sprite2D" parent="." index="2"]
+[node name="Negev" type="Sprite2D" parent="Area2D" index="0"]
 texture_filter = 3
 position = Vector2(1.1920929e-07, 0)
-scale = Vector2(1.3333333, 1)
+scale = Vector2(1.334, 1)
 texture = ExtResource("2_kf5uh")
+
+[node name="CollisionShape2D" parent="Area2D" index="1"]
+shape = SubResource("RectangleShape2D_rbu6e")

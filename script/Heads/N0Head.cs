@@ -18,10 +18,30 @@ public partial class N0Head : Head
 		base.Attack();
 		attackS ++;
 		PereGrevTimer.Start();
-		if (attackS == 30)
+		switch (attackS)
 		{
-			PereGrev = true;
-			attackS = 0;
+			case 3:
+				reloadTimer.WaitTime = 0.3f;
+				Randomness = 0.45f;
+				break;
+			case 7:
+				reloadTimer.WaitTime = 0.2f;
+				Randomness = 0.4f;
+				break;
+			case 15:
+				reloadTimer.WaitTime = 0.1f;
+				Randomness = 0.2f;
+				break;
+			case 23:
+				reloadTimer.WaitTime = 0.05f;
+				Randomness = 0.05f;
+				break;
+			case 30:
+				PereGrev = true;
+				attackS = 0;
+				reloadTimer.WaitTime = 0.4f;
+				Randomness = 0.5f;
+				break;
 		}
 	}
 
@@ -31,9 +51,13 @@ public partial class N0Head : Head
 		PereGrevTimer.Stop();
 	}
 	
-	public virtual void TryAttack()
+	public override void TryAttack()
 	{
-		if (!PereGrev)
-			base.TryAttack();
+		if (isReloaded && !PereGrev)
+		{
+			isReloaded = false;
+			reloadTimer.Start();
+			Attack();
+		}
 	}
 }

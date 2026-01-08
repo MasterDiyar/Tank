@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://bpun5w728xq6k"]
+[gd_scene load_steps=9 format=3 uid="uid://bpun5w728xq6k"]
 
 [ext_resource type="Script" uid="uid://boy5t1miu2wpn" path="res://script/UnitPick.cs" id="1_rxfwy"]
 [ext_resource type="FontFile" uid="uid://co5hls8fsfe2g" path="res://assets/paladinscond.ttf" id="1_ufhpf"]
@@ -11,7 +11,11 @@
 font = ExtResource("1_ufhpf")
 font_size = 32
 
-[node name="UnitPick" type="Control" node_paths=PackedStringArray("MainButton", "MainTexture", "NumberButtons", "NumberTextures")]
+[sub_resource type="LabelSettings" id="LabelSettings_a7lhi"]
+font = ExtResource("1_ufhpf")
+font_size = 32
+
+[node name="UnitPick" type="Control" node_paths=PackedStringArray("MainButton", "NumberButtons", "NumberTextures")]
 texture_filter = 3
 layout_mode = 3
 anchors_preset = 15
@@ -21,9 +25,8 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_rxfwy")
 MainButton = NodePath("HSplitContainer/MenuButton")
-MainTexture = NodePath("")
 NumberButtons = [NodePath("HSplitContainer/MenuButton2"), NodePath("HSplitContainer/MenuButton3"), NodePath("HSplitContainer/MenuButton4"), NodePath("HSplitContainer/MenuButton5")]
-NumberTextures = [NodePath(""), NodePath(""), NodePath(""), NodePath("")]
+NumberTextures = [null, null, null, null]
 
 [node name="Label" type="Label" parent="."]
 layout_mode = 1
@@ -40,6 +43,26 @@ HP:
 armor:
 rotation speed:"
 label_settings = SubResource("LabelSettings_o10wq")
+
+[node name="SecondaryInfoLabel" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -20.0
+offset_top = -23.0
+offset_right = 20.0
+grow_horizontal = 2
+grow_vertical = 0
+text = "Tank 2
+Speed:
+HP:
+Armor:
+Rotation Speed:"
+label_settings = SubResource("LabelSettings_a7lhi")
+horizontal_alignment = 2
 
 [node name="HSplitContainer" type="HBoxContainer" parent="."]
 clip_contents = true

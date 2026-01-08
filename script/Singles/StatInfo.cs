@@ -10,6 +10,7 @@ public partial class StatInfo : Node
         { 0, GD.Load<PackedScene>("res://scene/heads/0f_head.tscn") },
         { 1, GD.Load<PackedScene>("res://scene/heads/0h_head.tscn") },
         { 2, GD.Load<PackedScene>("res://scene/heads/0l_head.tscn") },
-        { 3, GD.Load<PackedScene>("res://scene/heads/0t_head.tscn") }
+        { 3, GD.Load<PackedScene>("res://scene/heads/0t_head.tscn") },
+        { 4, GD.Load<PackedScene>("res://scene/heads/0n_head.tscn") },
     };
 }

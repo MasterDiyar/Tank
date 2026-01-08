@@ -1,6 +1,7 @@
 using Godot;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using vansur.script;
 
 public partial class Tank : CharacterBody2D, DamagingObject
@@ -32,6 +33,20 @@ public partial class Tank : CharacterBody2D, DamagingObject
 		{ 3, [Vector2.Right*40, new Vector2(-35, -20), new Vector2(-35, 20) ] },
 		{ 4, [new Vector2(35, 35), new Vector2(-35, 35), new Vector2(35, -35), new Vector2(-35, -35)] }
 	};
+
+	public bool AddHead(PackedScene head)
+	{
+		var list = HeadScene.ToList();
+
+		list.Add(head);
+
+		if (list.Count > 4)
+			list.RemoveAt(0);
+
+		HeadScene = list.ToArray();
+		UpdateHeads(HeadScene.Length);
+		return true;
+	}
 	
 	public void UpdateHeads(int count)
 	{
