@@ -45,7 +45,7 @@ public partial class Head : AnimatedSprite2D
         GetTree().Root.AddChild(child);
     }
 
-    public void TryAttack()
+    public virtual void TryAttack()
     {
         if (isReloaded)
         {

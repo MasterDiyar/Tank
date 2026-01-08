@@ -3,7 +3,7 @@
 [ext_resource type="Texture2D" uid="uid://c0mk6slpqrgy7" path="res://assets/0L.png" id="1_u2mun"]
 [ext_resource type="Script" uid="uid://x4ebnee647h4" path="res://script/L0Head.cs" id="2_8luac"]
 [ext_resource type="AudioStream" uid="uid://cchu82uw0nr24" path="res://assets/sounds/_ystrel-z_uk (mp3cut.net).mp3" id="3_8luac"]
-[ext_resource type="PackedScene" uid="uid://dg4hnlgyc1uph" path="res://scene/aPlusbullet.tscn" id="3_fgc8q"]
+[ext_resource type="PackedScene" uid="uid://dg4hnlgyc1uph" path="res://scene/bullets/aPlusbullet.tscn" id="3_fgc8q"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_fgc8q"]
 animations = [{
