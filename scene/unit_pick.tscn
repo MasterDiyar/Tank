@@ -1,10 +1,8 @@
-[gd_scene load_steps=9 format=3 uid="uid://bpun5w728xq6k"]
+[gd_scene load_steps=7 format=3 uid="uid://bpun5w728xq6k"]
 
 [ext_resource type="Script" uid="uid://boy5t1miu2wpn" path="res://script/UnitPick.cs" id="1_rxfwy"]
 [ext_resource type="FontFile" uid="uid://co5hls8fsfe2g" path="res://assets/paladinscond.ttf" id="1_ufhpf"]
-[ext_resource type="Texture2D" uid="uid://b4hv5lqc0fs1t" path="res://assets/tank.png" id="2_rxfwy"]
-[ext_resource type="Texture2D" uid="uid://dpfqpvnl43q3f" path="res://assets/latank.png" id="3_o10wq"]
-[ext_resource type="PackedScene" uid="uid://dfd3s3jxmaycm" path="res://scene/turrets.tscn" id="5_o10wq"]
+[ext_resource type="PackedScene" uid="uid://bg72o5m2eln3y" path="res://scene/heads/0h_head.tscn" id="4_rxfwy"]
 [ext_resource type="PackedScene" uid="uid://1qxejf6k03mi" path="res://scene/tank.tscn" id="6_a7lhi"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_o10wq"]
@@ -15,7 +13,7 @@ font_size = 32
 font = ExtResource("1_ufhpf")
 font_size = 32
 
-[node name="UnitPick" type="Control" node_paths=PackedStringArray("MainButton", "NumberButtons", "NumberTextures")]
+[node name="UnitPick" type="Control" node_paths=PackedStringArray("MainButton", "SecondaryButton", "NumberButtons", "SecondNumberButtons", "NumberTextures", "SecondNumberTextures", "startButton")]
 texture_filter = 3
 layout_mode = 3
 anchors_preset = 15
@@ -24,9 +22,13 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_rxfwy")
-MainButton = NodePath("HSplitContainer/MenuButton")
-NumberButtons = [NodePath("HSplitContainer/MenuButton2"), NodePath("HSplitContainer/MenuButton3"), NodePath("HSplitContainer/MenuButton4"), NodePath("HSplitContainer/MenuButton5")]
+MainButton = NodePath("")
+SecondaryButton = NodePath("")
+NumberButtons = [NodePath(""), NodePath(""), NodePath(""), NodePath("")]
+SecondNumberButtons = []
 NumberTextures = [null, null, null, null]
+SecondNumberTextures = []
+startButton = NodePath("Button")
 
 [node name="Label" type="Label" parent="."]
 layout_mode = 1
@@ -64,101 +66,6 @@ Rotation Speed:"
 label_settings = SubResource("LabelSettings_a7lhi")
 horizontal_alignment = 2
 
-[node name="HSplitContainer" type="HBoxContainer" parent="."]
-clip_contents = true
-layout_mode = 1
-anchors_preset = -1
-anchor_right = 1.0
-anchor_bottom = 0.12200001
-offset_bottom = -0.056007385
-grow_horizontal = 2
-scale = Vector2(0.5, 0.75)
-
-[node name="MenuButton" type="MenuButton" parent="HSplitContainer"]
-clip_contents = true
-layout_mode = 2
-size_flags_horizontal = 3
-size_flags_stretch_ratio = 1.22
-theme_override_fonts/font = ExtResource("1_ufhpf")
-theme_override_font_sizes/font_size = 32
-text = "Tank type"
-flat = false
-item_count = 2
-popup/item_0/text = "Default"
-popup/item_0/icon = ExtResource("2_rxfwy")
-popup/item_0/id = 0
-popup/item_1/text = "Latank"
-popup/item_1/icon = ExtResource("3_o10wq")
-popup/item_1/id = 1
-
-[node name="MenuButton2" parent="HSplitContainer" instance=ExtResource("5_o10wq")]
-clip_contents = true
-layout_mode = 2
-size_flags_horizontal = 3
-
-[node name="MenuButton3" parent="HSplitContainer" instance=ExtResource("5_o10wq")]
-clip_contents = true
-layout_mode = 2
-size_flags_horizontal = 3
-
-[node name="MenuButton4" parent="HSplitContainer" instance=ExtResource("5_o10wq")]
-clip_contents = true
-layout_mode = 2
-size_flags_horizontal = 3
-
-[node name="MenuButton5" parent="HSplitContainer" instance=ExtResource("5_o10wq")]
-clip_contents = true
-layout_mode = 2
-size_flags_horizontal = 3
-
-[node name="HSplitContainer2" type="HBoxContainer" parent="."]
-clip_contents = true
-layout_mode = 1
-anchors_preset = -1
-anchor_left = 0.505
-anchor_right = 1.495
-anchor_bottom = 0.12200001
-offset_bottom = -0.056007385
-grow_horizontal = 0
-scale = Vector2(0.5, 0.75)
-
-[node name="MenuButton" type="MenuButton" parent="HSplitContainer2"]
-clip_contents = true
-layout_mode = 2
-size_flags_horizontal = 3
-size_flags_stretch_ratio = 1.22
-theme_override_fonts/font = ExtResource("1_ufhpf")
-theme_override_font_sizes/font_size = 32
-text = "Tank type"
-flat = false
-item_count = 2
-popup/item_0/text = "Default"
-popup/item_0/icon = ExtResource("2_rxfwy")
-popup/item_0/id = 0
-popup/item_1/text = "Latank"
-popup/item_1/icon = ExtResource("3_o10wq")
-popup/item_1/id = 1
-
-[node name="MenuButton2" parent="HSplitContainer2" instance=ExtResource("5_o10wq")]
-clip_contents = true
-layout_mode = 2
-size_flags_horizontal = 3
-
-[node name="MenuButton3" parent="HSplitContainer2" instance=ExtResource("5_o10wq")]
-clip_contents = true
-layout_mode = 2
-size_flags_horizontal = 3
-
-[node name="MenuButton4" parent="HSplitContainer2" instance=ExtResource("5_o10wq")]
-clip_contents = true
-layout_mode = 2
-size_flags_horizontal = 3
-
-[node name="MenuButton5" parent="HSplitContainer2" instance=ExtResource("5_o10wq")]
-clip_contents = true
-layout_mode = 2
-size_flags_horizontal = 3
-
 [node name="Button" type="Button" parent="."]
 layout_mode = 1
 anchors_preset = 3
@@ -182,6 +89,23 @@ offset_right = 340.0
 offset_bottom = 440.0
 
 [node name="tank" parent="Control" instance=ExtResource("6_a7lhi")]
+HeadScene = [ExtResource("4_rxfwy")]
+
+[node name="Button" type="Button" parent="Control"]
+layout_mode = 0
+offset_left = -105.0
+offset_top = -20.0
+offset_right = -78.0
+offset_bottom = 11.0
+text = "<<"
+
+[node name="Button2" type="Button" parent="Control"]
+layout_mode = 0
+offset_left = 97.71048
+offset_top = -20.0
+offset_right = 124.71048
+offset_bottom = 11.0
+text = ">>"
 
 [node name="Control2" type="Control" parent="."]
 anchors_preset = 0
@@ -191,6 +115,24 @@ offset_right = 1660.0
 offset_bottom = 440.0
 
 [node name="tank" parent="Control2" instance=ExtResource("6_a7lhi")]
+scale = Vector2(-1, -1)
+HeadScene = [ExtResource("4_rxfwy")]
+
+[node name="Button" type="Button" parent="Control2"]
+layout_mode = 0
+offset_left = -99.0
+offset_top = -20.0
+offset_right = -72.0
+offset_bottom = 11.0
+text = "<<"
+
+[node name="Button2" type="Button" parent="Control2"]
+layout_mode = 0
+offset_left = 71.0
+offset_top = -20.0
+offset_right = 98.0
+offset_bottom = 11.0
+text = ">>"
 
 [node name="CheckButton" type="CheckButton" parent="."]
 layout_mode = 0
