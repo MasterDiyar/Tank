@@ -85,6 +85,11 @@ public partial class Tank : CharacterBody2D, DamagingObject
 	{
 		QueueFree();
 	}
-	
-	
+
+	public void ClearHeads()
+	{
+		_activeHeads.Clear();
+		HeadScene = [];
+		UpdateHeads(HeadScene.Length);
+	}
 }
