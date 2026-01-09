@@ -1,6 +1,6 @@
 using Godot;
 using System;
-namespace vansur.script;
+using vansur.script;
 
 public partial class L0Head : Head
 {

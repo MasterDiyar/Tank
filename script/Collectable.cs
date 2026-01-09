@@ -40,13 +40,8 @@ public partial class Collectable : Area2D
             tank.Armor += Repair;
             tank.Armor *= RepairPercent / 100f + 1;
             if (ChangeHead > -1)
-            {
-                var tHL = tank.HeadScene.ToList();
-                tHL.Insert(0, StatInfo.HeadScenes[(int)ChangeHead]);
-                if(tHL.Count >= 5)tHL.RemoveAt(tHL.Count - 1);
-                tank.HeadScene = tHL.ToArray();
-                tank.UpdateHeads(tHL.Count);
-            }
+                tank.AddHead(StatInfo.HeadScenes[(int)ChangeHead]);
+            
             
             CallDeferred("queue_free");
         }

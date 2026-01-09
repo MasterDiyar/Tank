@@ -37,12 +37,9 @@ public partial class Tank : CharacterBody2D, DamagingObject
 	public bool AddHead(PackedScene head)
 	{
 		var list = HeadScene.ToList();
-
-		list.Add(head);
-
-		if (list.Count > 4)
-			list.RemoveAt(0);
-
+		list.Insert(0, head);
+		if (list.Count > 4) 
+			list.RemoveAt(list.Count - 1);
 		HeadScene = list.ToArray();
 		UpdateHeads(HeadScene.Length);
 		return true;

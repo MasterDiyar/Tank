@@ -1,7 +1,7 @@
 [gd_scene load_steps=6 format=3 uid="uid://c22dxahbptydm"]
 
 [ext_resource type="Texture2D" uid="uid://ciid64eu6gd5n" path="res://assets/head.png" id="1_s1ajv"]
-[ext_resource type="Script" uid="uid://6lfk2ageebqi" path="res://script/OtHead.cs" id="2_nm0mh"]
+[ext_resource type="Script" uid="uid://bi2ydjxm2kwj3" path="res://script/Heads/OtHead.cs" id="2_t1qdi"]
 [ext_resource type="PackedScene" uid="uid://bl785pmepaya8" path="res://scene/lineBullet.tscn" id="3_e7wag"]
 [ext_resource type="AudioStream" uid="uid://cchu82uw0nr24" path="res://assets/sounds/_ystrel-z_uk (mp3cut.net).mp3" id="3_megf1"]
 
@@ -19,14 +19,15 @@ animations = [{
 [node name="0T_head" type="AnimatedSprite2D" node_paths=PackedStringArray("reloadTimer", "AttackSound")]
 texture_filter = 3
 sprite_frames = SubResource("SpriteFrames_nm0mh")
-script = ExtResource("2_nm0mh")
+script = ExtResource("2_t1qdi")
 BulletScenes = Array[PackedScene]([ExtResource("3_e7wag"), ExtResource("3_e7wag"), ExtResource("3_e7wag")])
-OffSet = -0.16
-BetweenAngle = 0.04
-SpawnOffset = 16.0
+OffSet = 0.15
+BetweenAngle = 0.1
+SpawnOffset = 15.0
+RotationSpeed = 6.0
 reloadTimer = NodePath("Timer")
 AttackSound = NodePath("AudioStreamPlayer2D")
-Randomness = 0.2
+Randomness = 0.3
 
 [node name="Timer" type="Timer" parent="."]
 wait_time = 0.3
