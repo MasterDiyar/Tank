@@ -12,11 +12,10 @@ public partial class APlusbullet : LineBullet
 	{
 		var af = -1;
 		for (int i = 0; i < PebbleCount; i++){
-			var boomScene = GD.Load<PackedScene>("res://scene/pebble.tscn");
+			var boomScene = GD.Load<PackedScene>("res://scene/bullets/pebble.tscn");
 			var lapa = boomScene.Instantiate<Bullet>();
 
 			lapa.GlobalPosition = area.GlobalPosition;
-			lapa.Damage = Damage;
 			lapa.myTank = myTank;
 			
 			lapa.Rotation = Rotation - af * GD.Randf() * Spread;

@@ -13,7 +13,7 @@ font_size = 32
 font = ExtResource("1_ufhpf")
 font_size = 32
 
-[node name="UnitPick" type="Control" node_paths=PackedStringArray("MainButton", "SecondaryButton", "NumberButtons", "SecondNumberButtons", "NumberTextures", "SecondNumberTextures", "startButton")]
+[node name="UnitPick" type="Control" node_paths=PackedStringArray("ChooseButtons", "startButton")]
 texture_filter = 3
 layout_mode = 3
 anchors_preset = 15
@@ -22,12 +22,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_rxfwy")
-MainButton = NodePath("")
-SecondaryButton = NodePath("")
-NumberButtons = [NodePath(""), NodePath(""), NodePath(""), NodePath("")]
-SecondNumberButtons = []
-NumberTextures = [null, null, null, null]
-SecondNumberTextures = []
+ChooseButtons = [NodePath("Control/Button"), NodePath("Control/Button2"), NodePath("Control2/Button"), NodePath("Control2/Button2")]
 startButton = NodePath("Button")
 
 [node name="Label" type="Label" parent="."]

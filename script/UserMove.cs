@@ -9,8 +9,8 @@ public partial class UserMove : Node2D
 {
 	[Export] public Tank myTank;
 	[Export] public bool IsJoySitck = false;
-	private string[] _negativeAction = ["s", "a", "lsd", "lsl"];
-	private string[] _positiveAction = ["w", "d", "lsu", "lsr"];
+	private string[] _negativeAction = ["w", "a", "lsu", "lsl"];
+	private string[] _positiveAction = ["s", "d", "lsd", "lsr"];
 	private int _i = 0;
 	private List<Head> heads = [];
 
@@ -21,24 +21,27 @@ public partial class UserMove : Node2D
 		myTank.headAdded += (newList) => heads = [..newList];
 	}
 	
-	
 	void Movement(float fDelta)
-     	{
-             float forwardInput = Input.GetAxis(_negativeAction[_i], _positiveAction[_i]); 
-             float rotationInput = Input.GetAxis(_negativeAction[_i+1], _positiveAction[_i+1]);
-     
-             if (rotationInput != 0 && myTank.Body != null)
-             	myTank.GlobalRotation += rotationInput * myTank.RotationSpeed * fDelta;
-             if (forwardInput != 0) {
-             	myTank.Speed += (myTank.Speed < myTank.MaxSpeed) ? myTank.Acceleration * fDelta : 0;
-             	Vector2 forwardDirection = myTank.GlobalTransform.X;
-             	myTank.Velocity = forwardDirection * forwardInput * myTank.Speed;
-             } else {
-             	myTank.Speed = Mathf.MoveToward(myTank.Speed, myTank.MinSpeed, myTank.Acceleration * fDelta);
-             	myTank.Velocity = myTank.Velocity.MoveToward(Vector2.Zero, myTank.Acceleration * fDelta);
-             }
-             myTank.MoveAndSlide();
-     	}
+	{
+		float forwardInput = Input.GetAxis(_negativeAction[_i], _positiveAction[_i]); 
+		float rotationInput = Input.GetAxis(_negativeAction[_i+1], _positiveAction[_i+1]);
+		Vector2 inputDirection = new Vector2(rotationInput, forwardInput).Normalized();
+		if (inputDirection.Length() > 0) {
+			float targetAngle = inputDirection.Angle();
+			myTank.GlobalRotation = Mathf.LerpAngle(myTank.GlobalRotation, targetAngle, myTank.RotationSpeed * fDelta);
+		}
+		Vector2 currentForward = Vector2.FromAngle(myTank.GlobalRotation);
+
+		if (inputDirection.Length() > 0) {
+			myTank.Speed = Mathf.MoveToward(myTank.Speed, myTank.MaxSpeed, myTank.Acceleration * fDelta);
+			myTank.Velocity = currentForward * myTank.Speed;
+		} else {
+			myTank.Speed = Mathf.MoveToward(myTank.Speed, 0, myTank.Acceleration * fDelta);
+			myTank.Velocity = myTank.Velocity.MoveToward(Vector2.Zero, myTank.Acceleration * fDelta);
+		}
+
+		myTank.MoveAndSlide();
+	}
 
 	public override void _PhysicsProcess(double delta)
 	{

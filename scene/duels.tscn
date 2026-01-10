@@ -1,11 +1,7 @@
-[gd_scene load_steps=9 format=4 uid="uid://cn44hl63bbeus"]
+[gd_scene load_steps=5 format=4 uid="uid://cn44hl63bbeus"]
 
 [ext_resource type="PackedScene" uid="uid://cnjchstygs1i8" path="res://scene/roadTiles.tscn" id="1_m5w2l"]
 [ext_resource type="Script" uid="uid://c0l6x22ota0ew" path="res://script/Duels.cs" id="1_ut2f6"]
-[ext_resource type="PackedScene" uid="uid://1qxejf6k03mi" path="res://scene/tank.tscn" id="2_7i1up"]
-[ext_resource type="PackedScene" uid="uid://c52dyuduwuxix" path="res://scene/user_move.tscn" id="4_5ybsa"]
-[ext_resource type="PackedScene" uid="uid://bg72o5m2eln3y" path="res://scene/heads/0h_head.tscn" id="4_pe4hk"]
-[ext_resource type="PackedScene" uid="uid://cwfenyta3tbr8" path="res://scene/heads/0n_head.tscn" id="7_23enb"]
 [ext_resource type="PackedScene" uid="uid://xwx7rkok3eo" path="res://scene/buildings/house1.tscn" id="7_pe4hk"]
 [ext_resource type="PackedScene" uid="uid://dtph6i7kt530g" path="res://scene/collectable.tscn" id="9_0habs"]
 
@@ -15,8 +11,8 @@ HpLine1 = NodePath("CanvasLayer/Control/Control/HpLine1")
 HpLine2 = NodePath("CanvasLayer/Control/Control2/HpLine2")
 ArmorLine1 = NodePath("CanvasLayer/Control/Control/ArmorLine1")
 ArmorLine2 = NodePath("CanvasLayer/Control/Control2/ArmorLine2")
-Tank1 = NodePath("tank")
-Tank2 = NodePath("tank2")
+Tank1 = NodePath("")
+Tank2 = NodePath("")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
@@ -70,20 +66,6 @@ ChangeHead = 0.0
 
 [node name="BreakableObject" parent="." instance=ExtResource("7_pe4hk")]
 position = Vector2(1044.3633, 709.15936)
-
-[node name="tank" parent="." instance=ExtResource("2_7i1up")]
-position = Vector2(406, 699)
-HeadScene = [ExtResource("4_pe4hk"), ExtResource("7_23enb")]
-
-[node name="userMove" parent="tank" node_paths=PackedStringArray("myTank") instance=ExtResource("4_5ybsa")]
-myTank = NodePath("..")
-
-[node name="tank2" parent="." instance=ExtResource("2_7i1up")]
-position = Vector2(1865.3096, 531.93884)
-
-[node name="userMove" parent="tank2" node_paths=PackedStringArray("myTank") instance=ExtResource("4_5ybsa")]
-myTank = NodePath("..")
-IsJoySitck = true
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(1147.9908, 423.29175)
