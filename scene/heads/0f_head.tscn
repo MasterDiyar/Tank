@@ -25,6 +25,7 @@ RotationSpeed = 1.0
 reloadTimer = NodePath("Timer")
 AttackSound = NodePath("AudioStreamPlayer2D")
 Randomness = 1.0
+MaxDist = 550.0
 
 [node name="Timer" type="Timer" parent="."]
 wait_time = 0.85

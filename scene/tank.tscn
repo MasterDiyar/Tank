@@ -6,7 +6,7 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_v8ame"]
 size = Vector2(105, 85)
 
-[node name="tank" type="CharacterBody2D" node_paths=PackedStringArray("Body")]
+[node name="tank" type="CharacterBody2D" node_paths=PackedStringArray("Body") groups=["tanks"]]
 texture_filter = 3
 script = ExtResource("1_c1ogp")
 Speed = 30.0

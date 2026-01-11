@@ -11,6 +11,7 @@ public partial class Bullet : Node2D
 	public Tank myTank;
 	protected Area2D area;
 	[Export]protected int piercing = 0;
+	private Timer timer;
 	public override void _Ready()
 	{
 		area = GetNode<Area2D>("Area2D");
@@ -19,7 +20,7 @@ public partial class Bullet : Node2D
 		area.GlobalPosition = GlobalPosition;
 		GlobalPosition = Vector2.Zero;
 		area.GlobalRotation = GlobalRotation;
-		Timer timer = GetNode<Timer>("Timer");
+		timer = GetNode<Timer>("Timer");
 		timer.Start();
 		timer.Timeout += DieProcess;
 		Damage *= myTank.InitialDamage;
@@ -63,4 +64,5 @@ public partial class Bullet : Node2D
 		area.Position += (float)delta*Speed*Vector2.FromAngle(area.GlobalRotation);
 		Speed += Acceleration*(float)delta;
 	}
+	
 }

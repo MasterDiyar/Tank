@@ -38,17 +38,20 @@ public partial class N0Head : Head
 				break;
 			case 30:
 				PereGrev = true;
-				attackS = 0;
 				reloadTimer.WaitTime = 0.4f;
 				Randomness = 0.5f;
 				break;
 		}
+
+		Frame = attackS / 3;
 	}
 
 	void OStil()
 	{
 		PereGrev = false;
 		PereGrevTimer.Stop();
+		attackS = 0;
+		Frame = attackS / 3;
 	}
 	
 	public override void TryAttack()

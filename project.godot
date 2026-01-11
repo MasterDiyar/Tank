@@ -30,6 +30,10 @@ window/stretch/aspect="expand"
 
 project/assembly_name="vansur"
 
+[global_group]
+
+tanks=""
+
 [input]
 
 w={

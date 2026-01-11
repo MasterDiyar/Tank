@@ -1,0 +1,26 @@
+[gd_scene load_steps=5 format=3 uid="uid://d2py1rhplsatq"]
+
+[ext_resource type="PackedScene" uid="uid://cuiyiheel7ra3" path="res://scene/breakable_object.tscn" id="1_41vdk"]
+[ext_resource type="Texture2D" uid="uid://bnn8j5jmayu3y" path="res://assets/houses/coreAlCastle.png" id="2_htp0l"]
+[ext_resource type="PackedScene" uid="uid://bi0jw8sw3f14g" path="res://scene/buildings/Spawner.tscn" id="3_htp0l"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_stbaa"]
+size = Vector2(224, 190)
+
+[node name="BreakableObject" instance=ExtResource("1_41vdk")]
+texture_filter = 3
+MaxHp = 12000.0
+
+[node name="CollisionShape2D" parent="." index="0"]
+position = Vector2(-1, 14)
+shape = SubResource("RectangleShape2D_stbaa")
+
+[node name="CoreAlCastle" type="Sprite2D" parent="." index="1"]
+position = Vector2(-1, -1)
+texture = ExtResource("2_htp0l")
+
+[node name="Spawner" parent="." index="2" instance=ExtResource("3_htp0l")]
+Team = 2
+Difficulty = 3
+SpawnOffset = Vector2(100, 50)
+SpawnRandomRange = Vector2(100, 50)

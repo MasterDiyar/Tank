@@ -26,7 +26,8 @@ public partial class Tank : CharacterBody2D, DamagingObject
                                 
 	private List<Head> _activeHeads = [];
 
-	private readonly Dictionary<int, Vector2[]> _headPositions = new()
+	[Export]
+	protected Godot.Collections.Dictionary<int, Vector2[]> _headPositions = new()
 	{
 		{ 1, [Vector2.Zero] },
 		{ 2, [Vector2.Up*35, Vector2.Down*35] },
@@ -69,6 +70,7 @@ public partial class Tank : CharacterBody2D, DamagingObject
 		MinSpeed = Speed;
 		Hp = MaxHp;
 		Armor = MaxArmor;
+
 		UpdateHeads(HeadScene.Length);
 	}
 

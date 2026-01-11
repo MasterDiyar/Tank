@@ -1,10 +1,7 @@
-[gd_scene load_steps=3 format=3 uid="uid://dfxj3as13kxyh"]
+[gd_scene load_steps=2 format=3 uid="uid://dfxj3as13kxyh"]
 
 [ext_resource type="PackedScene" uid="uid://dnytrxgrs8s5v" path="res://scene/map.tscn" id="1_dbls1"]
-[ext_resource type="PackedScene" uid="uid://1qxejf6k03mi" path="res://scene/tank.tscn" id="2_33cqm"]
 
 [node name="game" type="Node2D"]
 
 [node name="map" parent="." instance=ExtResource("1_dbls1")]
-
-[node name="tank" parent="map" instance=ExtResource("2_33cqm")]

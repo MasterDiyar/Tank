@@ -28,9 +28,14 @@ RotationSpeed = 6.0
 reloadTimer = NodePath("Timer")
 AttackSound = NodePath("AudioStreamPlayer2D")
 Randomness = 0.3
+MaxDist = 460.0
 
 [node name="Timer" type="Timer" parent="."]
 wait_time = 0.3
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("3_megf1")
+volume_db = -24.233
+pitch_scale = 1.74
+attenuation = 1.8025012
+panning_strength = 1.5

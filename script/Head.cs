@@ -14,7 +14,7 @@ public partial class Head : AnimatedSprite2D
     [Export] protected float Randomness = 0;
     protected Tank parent;
     protected bool isReloaded = true;
-
+    [Export] public float MaxDist =900;
     public override void _Ready()
     {
         parent = GetParent<Tank>();
@@ -54,4 +54,7 @@ public partial class Head : AnimatedSprite2D
             Attack();
         }
     }
+
+    
+
 }
