@@ -1,7 +1,22 @@
 [gd_scene load_steps=2 format=3 uid="uid://dfxj3as13kxyh"]
 
-[ext_resource type="PackedScene" uid="uid://dnytrxgrs8s5v" path="res://scene/map.tscn" id="1_dbls1"]
+[ext_resource type="Script" uid="uid://ctts8uhce2o6s" path="res://script/Singles/Game.cs" id="1_5kiuu"]
 
 [node name="game" type="Node2D"]
+script = ExtResource("1_5kiuu")
 
-[node name="map" parent="." instance=ExtResource("1_dbls1")]
+[node name="Button" type="Button" parent="."]
+offset_left = 700.0
+offset_top = 428.0
+offset_right = 1252.0
+offset_bottom = 579.0
+theme_override_font_sizes/font_size = 96
+text = "PLAY SOLO"
+
+[node name="DUEL" type="Button" parent="."]
+offset_left = 696.0
+offset_top = 594.0
+offset_right = 1256.0
+offset_bottom = 734.0
+theme_override_font_sizes/font_size = 96
+text = "PLAY DUEL"
