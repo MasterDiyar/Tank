@@ -1,0 +1,66 @@
+[gd_scene load_steps=9 format=3 uid="uid://din767ve14tbw"]
+
+[ext_resource type="Script" uid="uid://bv33oeqt5ub5k" path="res://script/Fpv.cs" id="1_8qp5u"]
+[ext_resource type="Texture2D" uid="uid://b2hevkmf4xtdm" path="res://assets/animated/fpv1.png" id="2_8lqf6"]
+[ext_resource type="Texture2D" uid="uid://x01m1gjakvru" path="res://assets/animated/fpv2.png" id="3_jjmuf"]
+[ext_resource type="Texture2D" uid="uid://dvx0fv7namwsk" path="res://assets/animated/fpv3.png" id="4_gjt55"]
+[ext_resource type="Texture2D" uid="uid://coxcq8ta00rrq" path="res://assets/animated/fpv4.png" id="5_da0wr"]
+[ext_resource type="Texture2D" uid="uid://crwnxkt71qnw4" path="res://assets/animated/fpv5.png" id="6_1x00j"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_8ad25"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_8lqf6")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_jjmuf")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_gjt55")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_da0wr")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_1x00j")
+}],
+"loop": true,
+"name": &"default",
+"speed": 15.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_pjmor"]
+radius = 26.076809
+
+[node name="fpv" type="CharacterBody2D"]
+script = ExtResource("1_8qp5u")
+MaxSpeed = 1000.0
+RotationSpeed = 8.0
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+texture_filter = 3
+sprite_frames = SubResource("SpriteFrames_8ad25")
+frame_progress = 0.02622638
+offset = Vector2(-5, 0)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_pjmor")
+
+[node name="CPUParticles2D" type="CPUParticles2D" parent="."]
+amount = 16
+lifetime = 0.5
+explosiveness = 0.25
+emission_shape = 2
+emission_sphere_radius = 25.0
+direction = Vector2(-1, 0)
+spread = 180.0
+gravity = Vector2(0, 0)
+initial_velocity_min = 40.0
+initial_velocity_max = 80.0
+orbit_velocity_max = 0.1
+linear_accel_min = 20.0
+linear_accel_max = 20.0
+radial_accel_max = 16.0
+scale_amount_max = 2.0
+color = Color(0.56078434, 0.5686275, 0.5529412, 1)

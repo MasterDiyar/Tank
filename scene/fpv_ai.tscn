@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://cadjddrdqgxrn"]
+
+[ext_resource type="Script" uid="uid://gj1ub78h3d1v" path="res://script/FpvAi.cs" id="1_cejp3"]
+
+[node name="fpvAI" type="Node2D"]
+script = ExtResource("1_cejp3")

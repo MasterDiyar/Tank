@@ -1,0 +1,24 @@
+[gd_scene load_steps=3 format=3 uid="uid://btpqq8excojwj"]
+
+[ext_resource type="Script" uid="uid://dlr0o0otwardl" path="res://script/UserUI.cs" id="1_dk6bh"]
+[ext_resource type="Texture2D" uid="uid://c71ky360dcyn6" path="res://assets/hpbar.png" id="2_0o6dv"]
+
+[node name="CanvasLayer" type="CanvasLayer" node_paths=PackedStringArray("HpLine", "ArmorLine")]
+script = ExtResource("1_dk6bh")
+HpLine = NodePath("Line2D")
+ArmorLine = NodePath("Line2D2")
+
+[node name="Line2D" type="Line2D" parent="."]
+points = PackedVector2Array(10, 1060, 210, 1060)
+width = 30.0
+default_color = Color(1, 0, 0, 1)
+
+[node name="Line2D2" type="Line2D" parent="."]
+points = PackedVector2Array(10, 1020, 410, 1020)
+width = 16.0
+
+[node name="Hpbar" type="Sprite2D" parent="."]
+texture_filter = 3
+position = Vector2(0, 1007)
+texture = ExtResource("2_0o6dv")
+centered = false

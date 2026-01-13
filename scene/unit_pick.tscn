@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://bpun5w728xq6k"]
+[gd_scene load_steps=11 format=3 uid="uid://bpun5w728xq6k"]
 
 [ext_resource type="Script" uid="uid://boy5t1miu2wpn" path="res://script/UnitPick.cs" id="1_rxfwy"]
 [ext_resource type="FontFile" uid="uid://co5hls8fsfe2g" path="res://assets/paladinscond.ttf" id="1_ufhpf"]
@@ -12,6 +12,18 @@ font_size = 32
 [sub_resource type="LabelSettings" id="LabelSettings_a7lhi"]
 font = ExtResource("1_ufhpf")
 font_size = 32
+
+[sub_resource type="InputEventJoypadButton" id="InputEventJoypadButton_rxfwy"]
+button_index = 9
+
+[sub_resource type="Shortcut" id="Shortcut_o10wq"]
+events = [SubResource("InputEventJoypadButton_rxfwy")]
+
+[sub_resource type="InputEventJoypadButton" id="InputEventJoypadButton_a7lhi"]
+button_index = 10
+
+[sub_resource type="Shortcut" id="Shortcut_yil6k"]
+events = [SubResource("InputEventJoypadButton_a7lhi")]
 
 [node name="UnitPick" type="Control" node_paths=PackedStringArray("ChooseButtons", "startButton")]
 texture_filter = 3
@@ -119,6 +131,7 @@ offset_left = -99.0
 offset_top = -20.0
 offset_right = -72.0
 offset_bottom = 11.0
+shortcut = SubResource("Shortcut_o10wq")
 text = "<<"
 
 [node name="Button2" type="Button" parent="Control2"]
@@ -127,6 +140,7 @@ offset_left = 71.0
 offset_top = -20.0
 offset_right = 98.0
 offset_bottom = 11.0
+shortcut = SubResource("Shortcut_yil6k")
 text = ">>"
 
 [node name="CheckButton" type="CheckButton" parent="."]
